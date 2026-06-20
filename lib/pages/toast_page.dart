@@ -71,7 +71,7 @@ class _AlertPageState extends State<AlertPage> {
                   child: Column(
                     spacing: 16,
                     children: [
-                      const Text('Validation on Submit'),
+                      const Text('Toast SnackBar'),
                       ElevatedButton(
                         onPressed: _triggerToast,
                         child: const Text('Show Toast'),
@@ -189,7 +189,10 @@ class _AlertPageState extends State<AlertPage> {
                           Expanded(
                             child: Column(
                               children: [
-                                const Text('Immediate Validation'),
+                                Text(
+                                  '*Immediate Validation*',
+                                  style: TextStyle(color: Colors.red),
+                                ),
                                 Form(
                                   key: _formKey2,
                                   child: TextFormField(
