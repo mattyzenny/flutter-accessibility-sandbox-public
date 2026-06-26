@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/sandbox_page.dart';
+import '../widgets/code_snippet_template.dart';
+import '../widgets/at_description_template.dart';
 
 class ImagePage extends StatefulWidget {
   const ImagePage({
@@ -52,7 +54,9 @@ class _ImagePageState extends State<ImagePage> {
       child: Column(
         spacing: 24,
         children: [
-          // Section Intro Text
+          // ---------------------------------------------------------------------------
+          // Decorative Icons and Images
+          // ---------------------------------------------------------------------------
           Semantics(
             header: true,
             child: Text(
@@ -61,31 +65,56 @@ class _ImagePageState extends State<ImagePage> {
             ),
           ),
 
-          // Column examples
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Left side
+              // Image: ExcludeSemantics
               Expanded(
                 child: Column(
                   spacing: 16,
                   children: [
-                    const Text('Image ExcludeSemantics'),
                     ExcludeSemantics(
                       child: _profileImage('assets/images/pluto.jpeg'),
+                    ),
+                    const ATDescriptionTemplate(
+                      icon: Icons.check_circle_outline_outlined,
+                      iconStyle: IconThemeData(color: Colors.green),
+                      description: 'Image ExcludeSemantics',
+                      ios: 'TODO',
+                      chrome: 'TODO',
+                      safari: 'TODO',
+                    ),
+                    const CodeSnippetTemplate(
+                      code: '''ExcludeSemantics(
+  child: _profileImage('assets/images/pluto.jpeg'),
+)''',
                     ),
                   ],
                 ),
               ),
 
               const SizedBox(width: 24),
+
+              // Icon: ExcludeSemantics
               Expanded(
                 child: Column(
                   spacing: 16,
                   children: [
-                    const Text('Icon ExcludeSemantics'),
                     ExcludeSemantics(
                       child: _profileIcon(Icons.accessibility_new_rounded),
+                    ),
+                    const ATDescriptionTemplate(
+                      icon: Icons.check_circle_outline_outlined,
+                      iconStyle: IconThemeData(color: Colors.green),
+                      description: 'Icon ExcludeSemantics',
+                      ios: 'TODO',
+                      chrome: 'TODO',
+                      safari: 'TODO',
+                    ),
+                    const CodeSnippetTemplate(
+                      code: '''ExcludeSemantics(
+  child: _profileIcon(Icons.accessibility_new_rounded),
+)''',
                     ),
                   ],
                 ),
@@ -93,6 +122,9 @@ class _ImagePageState extends State<ImagePage> {
             ],
           ),
 
+          // ---------------------------------------------------------------------------
+          // Informative Icons and Images
+          // ---------------------------------------------------------------------------
           Semantics(
             header: true,
             child: Text(
@@ -101,30 +133,43 @@ class _ImagePageState extends State<ImagePage> {
             ),
           ),
 
-          // Column examples
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Left side
+              // Image: Semantics wrapper
               Expanded(
                 child: Column(
                   spacing: 16,
                   children: [
-                    Text('Image Semantics'),
                     Semantics(
                       label: 'pluto',
                       child: _profileImage('assets/images/pluto.jpeg'),
+                    ),
+                    const ATDescriptionTemplate(
+                      icon: Icons.check_circle_outline_outlined,
+                      iconStyle: IconThemeData(color: Colors.green),
+                      description: 'Image Semantics',
+                      ios: 'TODO',
+                      chrome: 'TODO',
+                      safari: 'TODO',
+                    ),
+                    const CodeSnippetTemplate(
+                      code: '''Semantics(
+  label: 'pluto',
+  child: _profileImage('assets/images/pluto.jpeg'),
+)''',
                     ),
                   ],
                 ),
               ),
 
               const SizedBox(width: 24),
+
+              // Image: semanticLabel property
               Expanded(
                 child: Column(
                   spacing: 16,
                   children: [
-                    Text('Image With SemanticLabel'),
                     Container(
                       width: 96,
                       height: 96,
@@ -140,37 +185,80 @@ class _ImagePageState extends State<ImagePage> {
                         ),
                       ),
                     ),
+                    const ATDescriptionTemplate(
+                      icon: Icons.check_circle_outline_outlined,
+                      iconStyle: IconThemeData(color: Colors.green),
+                      description: 'Image With SemanticLabel',
+                      ios: 'TODO',
+                      chrome: 'TODO',
+                      safari: 'TODO',
+                    ),
+                    const CodeSnippetTemplate(
+                      code: '''Image.asset(
+  'assets/images/pluto.jpeg',
+  semanticLabel: 'pluto',
+  fit: BoxFit.cover,
+)''',
+                    ),
                   ],
                 ),
               ),
               const SizedBox(width: 24),
 
+              // Icon: Semantics wrapper
               Expanded(
                 child: Column(
                   spacing: 16,
                   children: [
-                    Text(
-                      '*Icon Semantics*',
-                      style: TextStyle(color: Colors.red),
-                    ),
                     Semantics(
                       label: 'accessibility',
                       child: _profileIcon(Icons.accessibility_new_rounded),
                     ),
+                    const ATDescriptionTemplate(
+                      icon: Icons.warning_amber,
+                      iconStyle: IconThemeData(color: Colors.red, size: 16),
+                      description: 'Icon Semantics',
+                      descriptionStyle: TextStyle(color: Colors.red),
+                      ios: 'TODO',
+                      chrome: 'TODO',
+                      safari: 'TODO',
+                    ),
+                    const CodeSnippetTemplate(
+                      code: '''Semantics(
+  label: 'accessibility',
+  child: _profileIcon(Icons.accessibility_new_rounded),
+)''',
+                    ),
                   ],
                 ),
               ),
 
               const SizedBox(width: 24),
+
+              // Icon: Semantics wrapper + image role
               Expanded(
                 child: Column(
                   spacing: 16,
                   children: [
-                    const Text('Icon Semantics with image: true'),
                     Semantics(
                       label: 'accessibility',
                       image: true,
                       child: _profileIcon(Icons.accessibility_new_rounded),
+                    ),
+                    const ATDescriptionTemplate(
+                      icon: Icons.check_circle_outline_outlined,
+                      iconStyle: IconThemeData(color: Colors.green),
+                      description: 'Icon Semantics with image: true',
+                      ios: 'TODO',
+                      chrome: 'TODO',
+                      safari: 'TODO',
+                    ),
+                    const CodeSnippetTemplate(
+                      code: '''Semantics(
+  label: 'accessibility',
+  image: true,
+  child: _profileIcon(Icons.accessibility_new_rounded),
+)''',
                     ),
                   ],
                 ),
